@@ -4,6 +4,37 @@ $transition-duration: 250ms;
   --primary-color: #2e2f42;
   --button-color: #1e9d22;
   --button-color-hover: #46c14a;
+  --link-color: #c4990e;
+}
+
+// Міксин без аргументів
+
+@mixin big-text {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11111;
+  letter-spacing: 0.02em;
+}
+
+@mixin link-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #434455;
+}
+
+// Міксин з аргументами
+
+@mixin about($bg-color, $text-color) {
+  color: $text-color;
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid darken($bg-color, 10%);
+
+  &:hover {
+    background-color: lighten($bg-color, 10%);
+  }
 }
 
 body {
@@ -41,14 +72,38 @@ body {
   padding: 100px 0;
 }
 
+// header
+
+.header {
+  display: flex;
+  padding: 20px 100px;
+  align-items: center;
+
+  &__logo {
+    color: var(--primary-color);
+    @include big-text;
+    margin-right: auto;
+  }
+}
+
+.menu {
+  &__list {
+    gap: 20px;
+  }
+  &__link {
+    @include link-text;
+
+    &_green {
+      color: var(--link-color);
+    }
+  }
+}
+
 //Our Portfolio
 
 .portfolio {
   &__title {
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 1.11111;
-    letter-spacing: 0.02em;
+    @include big-text;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -62,7 +117,7 @@ body {
 }
 
 .button {
-  padding: 8px 4px;
+  padding: 8px 24px;
   border: none;
   background-color: var(--button-color);
   border-radius: 4px;
@@ -115,11 +170,33 @@ body {
     margin-bottom: 8px;
   }
 
+  &__button {
+    width: 100%;
+  }
+
   &_border:active {
     border: 2px solid #2be61e;
   }
 
   &:hover .portfolio-card__text-container {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  }
+}
+
+// about
+
+.about {
+  justify-content: center;
+
+  &__list {
+    gap: 40px;
+  }
+
+  &__item {
+    @include about(#e54a4a, var(--primary-color));
+    max-width: 350px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
   }
 }
