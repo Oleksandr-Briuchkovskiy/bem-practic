@@ -146,9 +146,9 @@ body img {
   gap: 40px;
 }
 .about__item {
-  color: var(--primary-color);
   background-color: #e54a4a;
   border: 1px solid #dc2020;
+  transition: background-color 250ms;
   max-width: 350px;
   padding: 10px;
   border-radius: 10px;
@@ -156,4 +156,4 @@ body img {
 }
 .about__item:hover {
   background-color: #eb7777;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
