@@ -1,4 +1,8 @@
+// Змінні
+
 $transition-duration: 250ms;
+
+// Змінні кольори
 
 :root {
   --primary-color: #2e2f42;
@@ -26,10 +30,8 @@ $transition-duration: 250ms;
 
 // Міксин з аргументами
 
-@mixin about($bg-color, $text-color) {
-  color: $text-color;
+@mixin about($bg-color) {
   background-color: $bg-color;
-  color: $text-color;
   border: 1px solid darken($bg-color, 10%);
 
   &:hover {
@@ -193,7 +195,7 @@ body {
   }
 
   &__item {
-    @include about(#e54a4a, var(--primary-color));
+    @include about(#e54a4a);
     max-width: 350px;
     padding: 10px;
     border-radius: 10px;
